@@ -22,3 +22,45 @@ The goal of this portfolio is to demonstrate practical, hands-on skills relevant
 ---
 
 ## Repository Structure
+google-cybersecurity-certificate/
+├── Course-01-Foundations/
+├── Course-02-Manage-Security-Risks/
+├── Course-03-Networks-and-Network-Security/
+├── Course-04-Linux-and-SQL/
+│   └── labs/
+│       └── sql-querying-lab/
+├── Course-05-Assets-Threats-Vulnerabilities/
+├── Course-06-Detection-and-Response/
+├── Course-07-Python-Automation/
+├── Course-08-Prepare-for-Cybersecurity-Jobs/
+└── certificates/
+
+
+---
+
+## Skills Demonstrated
+
+- SQL querying (`SELECT`, `FROM`, `ORDER BY`)
+- Linux command-line fundamentals
+- Database analysis for security investigations
+- Structured documentation of technical work
+- Progressive learning across cybersecurity domains
+
+---
+
+## How to Navigate
+
+Each course folder contains lab write-ups.  
+Every lab includes:
+- Objective
+- Tools used
+- Queries / commands performed
+- Screenshots
+- Key takeaways
+
+---
+
+## About
+
+This repository is actively maintained as I complete the Google Cybersecurity Professional Certificate.  
+New labs and write-ups are added regularly.
