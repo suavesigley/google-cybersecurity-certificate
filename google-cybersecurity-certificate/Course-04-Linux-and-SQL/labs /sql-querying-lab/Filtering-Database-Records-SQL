@@ -1,0 +1,64 @@
+# Security Analysis: Filtering Database Records using SQL WHERE Clauses
+
+## Overview
+In this lab activity, I investigated organizational assets and employee data by executing targeted SQL queries using `WHERE` clauses and string matching operators. By querying the `organization` database within MariaDB, I analyzed system schemas and filtered employee records based on specific departmental assignments and physical office locations.
+
+## Database & Table Schema
+* **Database:** `organization`
+* **`machines` Table:** Tracks hardware assets (`device_id`, `operating_system`, `email_client`, `OS_patch_date`, `employee_id`).
+* **`employees` Table:** Tracks personnel details (`employee_id`, `device_id`, `username`, `department`, `office`).
+
+---
+
+## Portfolio Media & Screenshot Mapping
+
+| Original Filename | Recommended Professional Name | Query / Evidence Shown |
+| :--- | :--- | :--- |
+| `gcsclab201.png` | `01-describe-table-schemas.png` | Executing `DESCRIBE machines;` and `DESCRIBE employees;` to inspect field types and primary keys |
+| `gcsclab202.png` | `02-where-department-finance.png` | Querying records using `SELECT * FROM employees WHERE department = 'Finance';` |
+| `gcsclab203.png` | `03-where-office-like-south.png` | Querying records using wildcards: `SELECT * FROM employees WHERE office LIKE 'South%';` |
+
+---
+
+## Lab Execution & Key Queries
+
+### Task 1: Database Structure & Schema Inspection
+Before running security filters, I inspected the structural schema of the database tables to identify primary keys and data types.
+
+1. **Table Schema Inspection:**
+   DESCRIBE machines;
+   DESCRIBE employees;
+   *Purpose:* Identified field names, null constraints, and primary keys across system assets and personnel records.
+
+   ![Describe Table Schemas](01-describe-table-schemas.png)
+
+### Task 2: Departmental Access Auditing
+To audit systems and personnel assigned specifically to the Finance division:
+
+1. **Filtering by Department:**
+   SELECT * FROM employees WHERE department = 'Finance';
+   *Purpose:* Isolated all employee IDs, assigned device IDs, and office locations for personnel within the Finance department.
+
+   ![WHERE Department Equals Finance](02-where-department-finance.png)
+
+### Task 3: Geographic Location Filtering
+To identify all employee assets assigned to a specific regional building branch:
+
+1. **Pattern Matching with Wildcards:**
+   SELECT * FROM employees WHERE office LIKE 'South%';
+   *Purpose:* Used the `LIKE` operator with the `%` wildcard to retrieve all employee records assigned to any office located in the 'South' facility (e.g., South-153, South-127).
+
+   ![WHERE Office LIKE South Wildcard](03-where-office-like-south.png)
+
+---
+
+## Troubleshooting & Analysis Insights
+
+* **Exact Match vs. Pattern Matching:** Using `=` requires an exact text match (e.g., `department = 'Finance'`), whereas `LIKE` paired with `%` allows broad searching for variable strings (e.g., `office LIKE 'South%'`).
+* **Null Value Awareness:** Schema inspection revealed that `device_id` in the `employees` table allows `NULL` values. Analysts must account for unassigned devices during audits.
+
+---
+
+## Key Takeaways for Security Operations
+* **Precise Scoping:** Applying conditional `WHERE` filters prevents pulling unnecessary dataset records during targeted security investigations.
+* **Asset Mapping:** Linking `employee_id` and `device_id` allows security analysts to map physical office locations directly to hardware endpoints during incident response containment.
