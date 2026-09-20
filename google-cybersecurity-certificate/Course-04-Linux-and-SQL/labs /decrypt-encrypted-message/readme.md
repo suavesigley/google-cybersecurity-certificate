@@ -48,8 +48,6 @@ Recovered message:
 “If you are able to read this, then you have successfully decrypted the classic cipher text. You recovered the encryption key that was used to encrypt this file. Great work!”
 
 Screenshot
-![Decrypt encrypted message](screenshots/01-decrypt-encrypted-message.png)
-
 
 Key Takeaways
 
@@ -62,3 +60,5 @@ Reading instruction files carefully is essential when recovering encrypted data.
 Status
 Lab completed successfully.
 text
+
+![Decrypt encrypted message](screenshots/01-decrypt-encrypted-message.png)
